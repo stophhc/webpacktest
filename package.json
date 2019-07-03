@@ -1,11 +1,11 @@
 {
-  "name": "webpackVue",
+  "name": "webpack-vue",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode production",
+    "build": "webpack --mode production",
     "dev": "webpack-dev-server  --inline --progress"
   },
   "keywords": [],
