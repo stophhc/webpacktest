@@ -1,11 +1,12 @@
-/*
-import './css/style.css'
-document.write("ddd");*/
-const path = require('path');
-const Vue = require('vue');
+import Vue from 'vue'
+import App from './App.vue'
 new Vue({
-    el: '#app',
-    data: {
+    el: '#App',
+   /* template:'<App/>',
+    component:{App},*/
+   render: h => h(App),
+    data:{
         message: 'Hello Vue.js!'
     }
 });
+console.log('test');
