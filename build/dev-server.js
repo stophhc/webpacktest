@@ -1,12 +1,14 @@
 const HtmlWebpackPlugin=require('html-webpack-plugin');//创建html页面
 const CleanWebpackPlugin=require('clean-webpack-plugin');//删除
-const ExtractTextplugin=require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin =require('mini-css-extract-plugin');
 const PurifyCssWebpack=require('purifycss-webpack');
 const glob=require('glob');
 const path = require('path');
-const webpack=require('webpack');
+//const webpack=require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
 module.exports={
     entry: {//页面入口文件
         app:'./src/main.js'
@@ -16,6 +18,12 @@ module.exports={
         //filename: 'js/[name]-[hash:7].js'//出口js文件
         filename: 'js/[name].js',//出口js文件
 
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            '@': resolve('src'),
+        }
     },
 
     devServer:{
@@ -31,15 +39,18 @@ module.exports={
         // new webpack.NamedModulesPlugin(), //用于启动HMR时可以显示模块的相对路径
         //new webpack.HotModuleReplacementPlugin(),
         new VueLoaderPlugin(),
-        new ExtractTextplugin('./src/css/[name].css'),
-        //new ExtractTextplugin('css/style.css'),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),
+        //new ExtractTextplugin('src/style/style.css'),
         new CleanWebpackPlugin(),//删除dist文件,2.0不需要传递参数['dist']
         new PurifyCssWebpack({
             paths:glob.sync(path.join(__dirname,'./*.html'))//路径
         }),
         new HtmlWebpackPlugin({
             title:'stophhc',
-            filename:'app.html',//生成文件地址
+            filename:'index.html',//生成文件地址
             template:'./index.html',//模板地址
             chunks:['app'],//多页面分别引入的js，和entry:向对应
             //hash:true,//缓存
@@ -53,11 +64,18 @@ module.exports={
         rules: [
             {
                 test:/\.css$/,
-                use:ExtractTextplugin.extract({
+               /* use:ExtractTextplugin.extract({
                     fallback:'style-loader',
-                    use:['css-loader','postcss-loader'],
+                    use:['style-loader','css-loader'],
                     publicPath:'../'//css背景图路径
-                })
+                })*/
+
+                 use: [
+                     'vue-style-loader',
+                     MiniCssExtractPlugin.loader,
+                     'css-loader'
+                 ]
+
             },
 
             {
@@ -81,7 +99,7 @@ module.exports={
             },{
                 test: /\.vue$/,
                 exclude: /node_modules/,
-                loader: "vue-loader"
+                loader: ['vue-loader']
             },
 
         ]

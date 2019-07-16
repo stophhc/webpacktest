@@ -1,12 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router/'//引入路由
+Vue.config.productionTip = false
 new Vue({
     el: '#App',
-   /* template:'<App/>',
-    component:{App},*/
+    router,
    render: h => h(App),
-    data:{
-        message: 'Hello Vue.js!'
-    }
 });
-console.log('test');
