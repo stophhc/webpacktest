@@ -1,10 +1,12 @@
 const HtmlWebpackPlugin=require('html-webpack-plugin');//创建html页面
 const CleanWebpackPlugin=require('clean-webpack-plugin');//删除
 const MiniCssExtractPlugin =require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 const PurifyCssWebpack=require('purifycss-webpack');
 const glob=require('glob');
 const path = require('path');
 //const webpack=require('webpack');
+
 const { VueLoaderPlugin } = require('vue-loader');
 function resolve (dir) {
     return path.join(__dirname, '..', dir)
@@ -15,8 +17,8 @@ module.exports={
     },
     output: {
         path: path.join(__dirname, './dist'),//,出口文件夹位置
-        //filename: 'js/[name]-[hash:7].js'//出口js文件
-        filename: 'js/[name].js',//出口js文件
+        filename: 'js/[name]-[hash:7].js'//出口js文件
+       //filename: 'js/[name].js',//出口js文件
 
     },
     resolve: {
@@ -30,7 +32,7 @@ module.exports={
         contentBase: path.resolve(__dirname, ''),//设置服务器访问的基本目录
         host:"127.0.0.1", //服务器ip地址
         port:"8060",//设置端口
-      //  inline:true,
+        //inline:true,
        // historyApiFallback : true,//让所有404的页面定位到index.html
         //hotOnly:true,
         open:true//自动打开浏览器
@@ -40,7 +42,7 @@ module.exports={
         //new webpack.HotModuleReplacementPlugin(),
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name]-[hash:7].css',
             chunkFilename: '[id].css',
         }),
         //new ExtractTextplugin('src/style/style.css'),
@@ -64,17 +66,11 @@ module.exports={
         rules: [
             {
                 test:/\.css$/,
-               /* use:ExtractTextplugin.extract({
-                    fallback:'style-loader',
-                    use:['style-loader','css-loader'],
-                    publicPath:'../'//css背景图路径
-                })*/
+                use: [
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                     'css-loader',
 
-                 use: [
-                     'vue-style-loader',
-                     MiniCssExtractPlugin.loader,
-                     'css-loader'
-                 ]
+                 ],
 
             },
 
