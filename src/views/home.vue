@@ -1,20 +1,31 @@
 <template>
     <div>
-        <app-menu></app-menu>
+        <app-top></app-top>
+        <div class="main">
+            <app-left></app-left>
+            <div class="right"></div>
+        </div>
+
+        <div class="zz_video"></div>
+        <div class="tc_video">
+            <div class="video_close"></div>
+            <div class="tc_videoN"></div>
+        </div>
     </div>
 </template>
 
 <script>
-    import Menu from '@/components/menu'
+    import Top from '@/components/top'
+    import Left from '@/components/left'
     export default {
         components:{
-            appMenu:Menu
+            appTop:Top,
+            appLeft:Left
         }
     }
 </script>
 
 <style scoped>
-    img{border:none; vertical-align:top;}
-    li{ list-style:none;}
-    i,em{ font-style:normal;}
+    .main{width: 1200px;margin: 0 auto}
+    .right{position: relative;width: 948px; float:right;}
 </style>

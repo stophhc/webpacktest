@@ -1,1 +1,11 @@
-body{height: 500px;}
+*{margin:0;padding:0;}
+img{border:none; vertical-align:top;}
+li{ list-style:none;}
+i,em{ font-style:normal;}
+a{color:#8f8f8f;text-decoration: none}
+body{background:#fff url(https://img.ssl.q1.com/lw/images/20170215_main/body_v15.jpg?v=1) no-repeat center 42px;padding-top:50px;font:12px/24px tahoma,'\5b8b\4f53',sans-serif;color: #8f8f8f;}
+
+.zz_video{position:absolute;z-index:9;filter:alpha(opacity=80);background:#000;opacity: 0.8;-moz-opacity: 0.8;left:0;top:0;width:100%;display: none;}
+.tc_video{ width:800px; height:500px; position:fixed;_position:absolute; top:200px; _top:300px ;left:50%; margin-left:-400px; z-index:10; display:none;}
+.video_close{background:url(https://img.ssl.q1.com/lw/images/20170215_main/close.png?v=1) no-repeat; width:59px; height:58px; position:absolute; top:5px; right:-70px; z-index:10; cursor:pointer;}
+.video_close:hover{transform: rotate(360deg);transition: 1s;}
