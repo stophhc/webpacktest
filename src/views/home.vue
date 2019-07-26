@@ -3,7 +3,9 @@
         <app-top></app-top>
         <div class="main">
             <app-left></app-left>
-            <div class="right"></div>
+            <div class="right">
+
+            </div>
         </div>
 
         <div class="zz_video"></div>

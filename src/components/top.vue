@@ -32,7 +32,7 @@
                     {itemsHref:'/main.html',itemsName:'官网首页',itemsSpan:'HOME PAGE'},
                     {itemsHref:'/main.html',itemsName:'新闻中心',itemsSpan:'NEWS'},
                     {itemsHref:'/main.html',itemsName:'游戏展示',itemsSpan:'GAME SHOW'},
-                    {itemsHref:'/main.html',itemsName:'游戏下载',itemsSpan:'DOWNLOAD'},
+                    {itemsHref:'/download/index.html',itemsName:'游戏下载',itemsSpan:'DOWNLOAD'},
                     {itemsHref:'/main.html',itemsName:'客服中心',itemsSpan:'SERVICE CENTER'},
                     {itemsHref:'/main.html',itemsName:'游戏论坛',itemsSpan:'GAME FORM'}
 
@@ -57,7 +57,7 @@
                 ],
                 service: [
                     {itemsHref:'http://service.q1.com/LW/HelpSelf',itemsName:'服务专区'},
-                    {itemsHref:'http://kf.q1.com/SelfService/FunctionPage?GameID=3',itemsName:'自助服务'},
+                    {itemsHref:'http://kf.q1.com/LW/FunctionPage?GameID=3',itemsName:'自助服务'},
                     {itemsHref:'http://service.q1.com/Question/HotQuestion?ProductID=12',itemsName:'常见问题'},
                     {itemsHref:'http://zbg.lw.q1.com/GoodsTrade/TradeMain',itemsName:'珍宝阁'}
                 ],
