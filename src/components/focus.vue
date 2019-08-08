@@ -33,8 +33,8 @@
 </script>
 
 <style scoped>
-    .focus{position: absolute; top: 0;left: 0;}
-    .fucus1{width: 610px;height: 275px;float: left;}
+
+    .focus{width: 610px;height: 275px;float: left;}
     .tab{width:610px;height:275px; position:relative;}
     .swf{width:610px;height:275px;position:relative; display:none;}
     .swf img{position:absolute;left:0px;top:0px;width:610px;height:275px;}

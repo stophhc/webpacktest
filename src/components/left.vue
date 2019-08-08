@@ -1,7 +1,7 @@
 <template>
     <div class="left">
         <div class="left_top loop">
-            <div class="down"><a :href="leftTitle.leftTopHref">{{leftTitle.leftTop}}</a></div>
+            <div class="down"><!--<a :href="leftTitle.leftTopHref">{{leftTitle.leftTop}}</a>--><router-link :to="'test1'">{{leftTitle.leftTop}}</router-link></div>
             <div class="nav">
                 <ul>
                     <li v-for="itme in nav" :class="itme.className"><span></span><a :href="itme.itemsHref" target="_blank">{{itme.itemsName}}</a> </li>
@@ -78,7 +78,7 @@
                     contactWx:'HOTLONGWU',
                     contactWb:'新浪微博',
                     contactQq:'273704598',
-                    hezuoTit:'或者伙伴',
+                    hezuoTit:'合作伙伴',
                     linkTie:'《龙武》官方合作媒体'
                 },
                 nav:[
