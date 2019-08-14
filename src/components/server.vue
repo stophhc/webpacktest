@@ -1,21 +1,21 @@
 <template>
     <ul class="mulitline1">
-            <li><span v-for="itme in server">{{itme.text}}</span></li>
+            <li><span :key="itme.id" v-for="itme in server">{{itme.text}}</span></li>
     </ul>
 </template>
 
 <script>
-    export default {
-        name: "server",
-        data(){
-            return{
-                server:[
-                    {text:'龙争'},
-                    {text:'虎斗'}
-                ]
-            }
-        }
+export default {
+  name: 'server',
+  data () {
+    return {
+      server: [
+        {text: '龙争'},
+        {text: '虎斗'}
+      ]
     }
+  }
+}
 </script>
 
 <style scoped>

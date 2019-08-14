@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router/'//引入路由
-import  './style/style.css'
+import router from './router/'// 引入路由
+import './style/style.css'
 Vue.config.productionTip = false
+/* eslint-disable no-new */
 new Vue({
-    el: '#App',
-    router,
-   render: h => h(App),
-});
+  el: '#App',
+  router,
+  render: h => h(App)
+})

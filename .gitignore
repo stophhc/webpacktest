@@ -1,12 +1,12 @@
 .DS_Store
 node_modules/
-dist/
-dev/
-css/icon.css
+/dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
+/test/unit/coverage/
+/test/e2e/reports/
+selenium-debug.log
 
 # Editor directories and files
 .idea

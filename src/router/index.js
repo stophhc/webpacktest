@@ -1,29 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import test from '@/components/test'
-import test1 from '@/components/test1'
 
-import Home from '@/views/home'
-Vue.use(Router);
-
+Vue.use(Router)
 export default new Router({
-    routes:[
+  routes: [
+    {
+      path: '/', // 首页
+      name: 'home',
+      component: () => import('@/views/home')
+    },
+    {
+      path: '/download', // 地址栏路径
+      name: 'download',
+      component: () => import('@/views/download/index'),
+      children: [// 子路由
         {
-            path : '*',//地址栏路径
-            redirect:'/'
+          path: 'index',
+          component: () => import('@/views/download/index')
         },
         {
-            path : '/',//首页
-            name :'home' ,
-            component :  Home//组件的名字
-        },
-        {
-            path : '/test1',//地址栏路径
-            name :'test1' ,
-            component :  test1//组件的名字，这个路由对应跳转到的组件
+          path: 'mend',
+          name: 'mend',
+          component: () => import('@/views/download/mend')
         }
-    ],
-    mode: "history"//去掉#号
+      ]
+
+    }
+  ]
+  // mode: "history"//去掉#号
 })
-
-

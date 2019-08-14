@@ -22,14 +22,10 @@
 </template>
 
 <script>
-    //import 'https://lw2.ssl.q1.com/news/js/cache/ablumn_16.js'
-    export default {
-        name: "focus"
-    }
-    $.getJSON("https://lw2.ssl.q1.com/news/js/cache/ablumn_17.js?jsoncallback=?",
-        function(){
-        alert('ddd');
-    });
+// import 'https://lw2.ssl.q1.com/news/js/cache/ablumn_16.js'
+export default {
+  name: 'focus'
+}
 </script>
 
 <style scoped>

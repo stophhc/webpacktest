@@ -7,13 +7,13 @@
 
            <div class="menu" @mouseover="mouseover()" @mouseout="mouseout()">
                <ul class="menu_one">
-                   <li  v-for="item in menu"><a :href="item.itemsHref" target="_blank" class="menu_list_a">{{item.itemsName}}</a><span>{{item.itemsSpan}}</span></li>
+                   <li :key="item.id" v-for="item in menu"><a :href="item.itemsHref" target="_blank" class="menu_list_a">{{item.itemsName}}</a><span>{{item.itemsSpan}}</span></li>
                </ul>
                <ul class="menu_tow">
-                   <li><span v-for="item in news"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
-                   <li><span v-for="item in gameShow"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
-                   <li><span v-for="item in download"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
-                   <li><span v-for="item in service"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
+                   <li><span :key="item.id" v-for="item in news"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
+                   <li><span :key="item.id" v-for="item in gameShow"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
+                   <li><span :key="item.id" v-for="item in download"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
+                   <li><span :key="item.id" v-for="item in service"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
                </ul>
            </div>
        </div>
@@ -21,63 +21,62 @@
 </template>
 
 <script>
-    import Server from '@/components/server'
-    export default {
-        components:{
-            appServer:Server
-        },
-        data(){
-            return {
-                menu: [
-                    {itemsHref:'/main.html',itemsName:'官网首页',itemsSpan:'HOME PAGE'},
-                    {itemsHref:'/main.html',itemsName:'新闻中心',itemsSpan:'NEWS'},
-                    {itemsHref:'/main.html',itemsName:'游戏展示',itemsSpan:'GAME SHOW'},
-                    {itemsHref:'/download/index.html',itemsName:'游戏下载',itemsSpan:'DOWNLOAD'},
-                    {itemsHref:'/main.html',itemsName:'客服中心',itemsSpan:'SERVICE CENTER'},
-                    {itemsHref:'/main.html',itemsName:'游戏论坛',itemsSpan:'GAME FORM'}
+import Server from '@/components/server'
+export default {
+  components: {
+    appServer: Server
+  },
+  data () {
+    return {
+      menu: [
+        {itemsHref: '/main.html', itemsName: '官网首页', itemsSpan: 'HOME PAGE'},
+        {itemsHref: '/main.html', itemsName: '新闻中心', itemsSpan: 'NEWS'},
+        {itemsHref: '/main.html', itemsName: '游戏展示', itemsSpan: 'GAME SHOW'},
+        {itemsHref: '/download/index.html', itemsName: '游戏下载', itemsSpan: 'DOWNLOAD'},
+        {itemsHref: '/main.html', itemsName: '客服中心', itemsSpan: 'SERVICE CENTER'},
+        {itemsHref: '/main.html', itemsName: '游戏论坛', itemsSpan: 'GAME FORM'}
 
-                ],
-                news: [
-                    {itemsHref:'http://lw2.q1.com//JzNewsFile/JZT0/P1.html',itemsName:'综 合'},
-                    {itemsHref:'http://lw2.q1.com//JzNewsFile/T29/P1.html',itemsName:'新 闻'},
-                    {itemsHref:'http://lw2.q1.com//JzNewsFile/T27/P1.html',itemsName:'公 告'},
-                    {itemsHref:'http://lw2.q1.com//JzNewsFile/T28/P1.html',itemsName:'活动'}
-                    ],
-                gameShow: [
-                    {itemsHref:'http://lw2.q1.com//jzarticle/ziliao.html',itemsName:'游戏资料'},
-                    {itemsHref:'http://lw2.q1.com//zt/xszn.html',itemsName:'新手指南'},
-                    {itemsHref:'http://lw2.q1.com//zhiye/',itemsName:'宗派展示'},
-                    {itemsHref:'http://lw2.q1.com//zt/index.html',itemsName:'特色专题'},
-                    {itemsHref:'http://lw2.q1.com//sjsy/video.html',itemsName:'视觉盛宴'}
-                    ],
-                download: [
-                    {itemsHref:'/download/index.html',itemsName:'客户端下载'},
-                    {itemsHref:'/download/mend.html',itemsName:'补丁下载'},
-                    {itemsHref:'/download/cjwt.html',itemsName:'常见问题'}
-                ],
-                service: [
-                    {itemsHref:'http://service.q1.com/LW/HelpSelf',itemsName:'服务专区'},
-                    {itemsHref:'http://kf.q1.com/LW/FunctionPage?GameID=3',itemsName:'自助服务'},
-                    {itemsHref:'http://service.q1.com/Question/HotQuestion?ProductID=12',itemsName:'常见问题'},
-                    {itemsHref:'http://zbg.lw.q1.com/GoodsTrade/TradeMain',itemsName:'珍宝阁'}
-                ],
-            }
-
-        },
-        methods:{
-            mouseover:function(){$('.menu_tow').show()},
-            mouseout:function(){$('.menu_tow').hide()},
-            topVideo:function(){
-                $(".zz_video").height($(document).height());
-                $(".zz_video ,.tc_video").show();
-                $(".tc_videoN").html("<embed width='800' height='500' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer'  quality='high' allowscriptaccess='always' FlashVars='videourl=https://sres.q1.com/flv/lw/main_190614.flv&&autoplay=1&&repeat=1' allowfullscreen='true' src='https://sres.q1.com/flv/webPlayer.swf' wmode='transparent' name='player'></embed>");
-                $(".video_close").click(function(){
-                    $(".zz_video ,.tc_video").hide();
-                    $(".tc_videoN").html("")
-                })
-            }
-        }
+      ],
+      news: [
+        {itemsHref: 'http://lw2.q1.com//JzNewsFile/JZT0/P1.html', itemsName: '综 合'},
+        {itemsHref: 'http://lw2.q1.com//JzNewsFile/T29/P1.html', itemsName: '新 闻'},
+        {itemsHref: 'http://lw2.q1.com//JzNewsFile/T27/P1.html', itemsName: '公 告'},
+        {itemsHref: 'http://lw2.q1.com//JzNewsFile/T28/P1.html', itemsName: '活动'}
+      ],
+      gameShow: [
+        {itemsHref: 'http://lw2.q1.com//jzarticle/ziliao.html', itemsName: '游戏资料'},
+        {itemsHref: 'http://lw2.q1.com//zt/xszn.html', itemsName: '新手指南'},
+        {itemsHref: 'http://lw2.q1.com//zhiye/', itemsName: '宗派展示'},
+        {itemsHref: 'http://lw2.q1.com//zt/index.html', itemsName: '特色专题'},
+        {itemsHref: 'http://lw2.q1.com//sjsy/video.html', itemsName: '视觉盛宴'}
+      ],
+      download: [
+        {itemsHref: '/download/index.html', itemsName: '客户端下载'},
+        {itemsHref: '/download/mend.html', itemsName: '补丁下载'},
+        {itemsHref: '/download/cjwt.html', itemsName: '常见问题'}
+      ],
+      service: [
+        {itemsHref: 'http://service.q1.com/LW/HelpSelf', itemsName: '服务专区'},
+        {itemsHref: 'http://kf.q1.com/LW/FunctionPage?GameID=3', itemsName: '自助服务'},
+        {itemsHref: 'http://service.q1.com/Question/HotQuestion?ProductID=12', itemsName: '常见问题'},
+        {itemsHref: 'http://zbg.lw.q1.com/GoodsTrade/TradeMain', itemsName: '珍宝阁'}
+      ]
     }
+  },
+  methods: {
+    mouseover: function () { $('.menu_tow').show() },
+    mouseout: function () { $('.menu_tow').hide() },
+    topVideo: function () {
+      $('.zz_video').height($(document).height())
+      $('.zz_video ,.tc_video').show()
+      $('.tc_videoN').html("<embed width='800' height='500' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer'  quality='high' allowscriptaccess='always' FlashVars='videourl=https://sres.q1.com/flv/lw/main_190614.flv&&autoplay=1&&repeat=1' allowfullscreen='true' src='https://sres.q1.com/flv/webPlayer.swf' wmode='transparent' name='player'></embed>")
+      $('.video_close').click(function () {
+        $('.zz_video ,.tc_video').hide()
+        $('.tc_videoN').html('')
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
