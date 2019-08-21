@@ -7,12 +7,15 @@
 <script>
 export default {
   name: 'server',
+  // props: ['server'],
+  props: {
+    server: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
-      server: [
-        {text: '龙争'},
-        {text: '虎斗'}
-      ]
     }
   }
 }

@@ -28,6 +28,9 @@
       第二部：卸载游戏到官网下载点http://lw.q1.com/download/index.html下载安装最新客户端进行游戏。
     </div>
   </div>
+  <button-counter></button-counter>
+  <button-counter></button-counter>
+  <button-counter></button-counter>
 </div>
 </template>
 
@@ -36,7 +39,11 @@ export default {
   name: 'Faq'
 }
 </script>
-
 <style scoped>
-
+  .tit3{ margin-top:35px;}
+  .tit3 strong{ display:inline-block; font-size:14px;border-left:2px solid #cfae69; padding-left:8px; line-height:16px;}
+  .tit3 span{ color:#7c78bd; padding-left:20px;}
+  .cjwt_list{ border-bottom:1px dotted #adacc6; padding-bottom:35px;}
+  .cjwt_listN{ padding-left:10px; line-height:24px; margin-top:10px;}
+  .tit3 i{ font-style:normal; display:block;font-size:14px; font-weight:bold; padding-left:10px; margin-top:3px;}
 </style>

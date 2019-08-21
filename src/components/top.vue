@@ -2,7 +2,7 @@
     <div>
        <div class="top">
            <div class="logo"><img src="https://img.ssl.q1.com/lw/images/20170215_main/logo_v2.png?v=1" alt="龙武"></div>
-           <div class="xftj"><app-server></app-server></div>
+           <div class="xftj"><app-server v-bind:server="server"></app-server></div>
            <div class="top_video" @click="topVideo"></div>
 
            <div class="menu" @mouseover="mouseover()" @mouseout="mouseout()">
@@ -36,6 +36,10 @@ export default {
         {itemsHref: '/main.html', itemsName: '客服中心', itemsSpan: 'SERVICE CENTER'},
         {itemsHref: '/main.html', itemsName: '游戏论坛', itemsSpan: 'GAME FORM'}
 
+      ],
+      server: [
+        {text: '龙争'},
+        {text: '虎斗'}
       ],
       news: [
         {itemsHref: 'http://lw2.q1.com//JzNewsFile/JZT0/P1.html', itemsName: '综 合'},

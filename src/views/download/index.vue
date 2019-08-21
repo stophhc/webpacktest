@@ -14,7 +14,6 @@
             </div>
             <router-view></router-view>
           </div>
-
         </div>
       </div>
       <copy></copy>
@@ -31,6 +30,9 @@ export default {
     appTop: Top,
     appLeft: Left,
     'copy': Copy
+  },
+  mounted(){
+
   }
 }
 </script>

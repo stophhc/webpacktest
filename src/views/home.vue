@@ -1,5 +1,6 @@
 <template>
     <div>
+      <commonTop></commonTop>
         <app-top></app-top>
         <div class="main">
             <app-left></app-left>
@@ -182,18 +183,7 @@
 </template>
 
 <script>
-import '@/util/common_top'
-import Top from '@/components/top'
-import Left from '@/components/left'
-import Focus from '@/components/focus'
-import Copy from '@/components/copy'
 export default {
-  components: {
-    appTop: Top,
-    appLeft: Left,
-    appFocus: Focus,
-    'copy': Copy
-  },
   data () {
     return {
       dataCenter: {

@@ -84,11 +84,12 @@ export default {
         versions: '13112001_13112701', size: '11.35MB', date: '2013-11-27', downloadHref: 'http://download.lw.szgla.cn/wei_update/patch13112601.exe'}, {
         versions: '13112001_13112701', size: '11.35MB', date: '2013-11-27', downloadHref: 'http://download.lw.szgla.cn/wei_update/patch13112601.exe'}, {
         versions: '13112001_13112701', size: '11.35MB', date: '2013-11-27', downloadHref: 'http://download.lw.szgla.cn/wei_update/patch13112601.exe'}
-      ]
+      ],
+      name: 'Henry'
     }
   },
   mounted () {
-    $('.unfold').each(function (ex) {
+    /* $('.unfold').each(function (ex) {
       $('.unfold').eq(ex).toggle(function () {
         $('.hhc1').eq(ex).css('height', 'auto')
         $('.unfold').eq(ex).html('点击收起')
@@ -96,7 +97,27 @@ export default {
         $('.hhc1').eq(ex).css('height', '200px')
         $('.unfold').eq(ex).html('查看更多')
       })
+    }) */
+    $('.unfold').click(function () {
+      $('.down_table').toggle(
+        $('.hhc1').css('height', 'auto')
+      )
     })
+  },
+  // 进入组件
+  /* beforeRouteEnter: (to, from, next) => {
+    next(vm => {
+      alert('Hello' + vm.name)
+    })
+  } */
+
+  // 离开组件
+  beforeRouteLeave (to, from, next) {
+    if (confirm('确定离开吗？') === true) {
+      next()
+    } else {
+      next(false)
+    }
   }
 }
 </script>
