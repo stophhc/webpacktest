@@ -1,21 +1,21 @@
 import Vue from 'vue'
 import App from './App.vue'
+import store from './store'// 引入vuex
 import router from './router/'// 引入路由
 import './style/style.css'
 import '@/api/lwApi'
 import CommonTop from '@/components/commonTop'
 import Top from '@/components/top'
 import Left from '@/components/left'
-import Focus from '@/components/focus'
+
 import copy from '@/components/copy'
 Vue.config.productionTip = false
-Vue.component({
-  'copy': copy,
-  appTop: Top,
-  appLeft: Left,
-  appFocus: Focus,
-  'commonTop': CommonTop
-})
+
+Vue.component('copy', copy)
+Vue.component('appTop', Top)
+Vue.component('appLeft', Left)
+
+Vue.component('commonTop', CommonTop)
 
 /* Vue.component('button-counter', {
   data: function () {
@@ -29,6 +29,7 @@ Vue.component({
 /* eslint-disable no-new */
 new Vue({
   el: '#App',
+  store,
   router,
   render: h => h(App)
 })

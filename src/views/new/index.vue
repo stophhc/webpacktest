@@ -1,39 +1,31 @@
 <template>
-    <div>
-      <commonTop></commonTop>
-      <app-top></app-top>
-      <div class="main">
-        <app-left></app-left>
-        <div class="right">
-          <div class="tit1">
-            <span>您所在的位置：<router-link :to="'/'">首页</router-link> ＞ <router-link :to="'/download'">游戏下载</router-link> ＞ 客户端下载</span>
-            <h2>游戏下载</h2><i></i><em>DOWNLOAD</em>
+  <div>
+    <commonTop></commonTop>
+    <app-top></app-top>
+    <div class="main">
+      <app-left></app-left>
+      <div class="right">
+        <div class="tit1">
+          <span>您所在的位置：<router-link :to="'/'">首页</router-link> ＞ <router-link :to="'/download'">游戏下载</router-link> ＞ 客户端下载</span>
+          <h2>游戏下载</h2><i></i><em>DOWNLOAD</em>
+        </div>
+        <div class="cjwt">
+          <div class="tit2">
+            <router-link :to="{name:'index'}">完整客户端下载</router-link><router-link :to="{name:'mend'}">补丁下载</router-link><router-link :to="{name:'faq'}">常见问题</router-link>
           </div>
-          <div class="cjwt">
-            <div class="tit2">
-              <router-link :key="item" v-for="item in downTe[1].children" :to="{name:item.name}">{{item.meta.title}}</router-link>
-            </div>
-            <router-view></router-view>
-          </div>
+          <router-view></router-view>
         </div>
       </div>
-      <copy></copy>
     </div>
+    <copy></copy>
+  </div>
 
 </template>
 
 <script>
-import { downLoad1 } from '../../router'
 export default {
-  computed: {
-    downTe () {
-      return downLoad1()
-    }
-  },
   mounted () {
-    console.log(this.$router)
   }
-
 }
 </script>
 <style scoped>

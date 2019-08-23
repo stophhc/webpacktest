@@ -1,9 +1,9 @@
 <template>
     <div>
       <commonTop></commonTop>
-        <app-top></app-top>
+        <appTop></appTop>
         <div class="main">
-            <app-left></app-left>
+            <appLeft></appLeft>
             <div class="right">
                 <app-focus></app-focus>
                 <!--新闻-->
@@ -183,7 +183,11 @@
 </template>
 
 <script>
+import Focus from '@/components/focus'
 export default {
+  components: {
+    'appFocus': Focus
+  },
   data () {
     return {
       dataCenter: {

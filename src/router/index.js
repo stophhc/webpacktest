@@ -2,48 +2,51 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-const router = new Router({
-  routes: [
-    {
-      path: '/', // 首页
-      name: 'home',
-      components: {
-        default: () => import('@/views/home'),
-        'hhctest': () => import('@/views/download/Download')// 组件复用
-      },
-      meta: {title: '首页'}
+
+const routesTest = [
+  {
+    path: '/', // 首页
+    name: 'home',
+    components: {
+      default: () => import('@/views/home'),
+      'hhctest': () => import('@/views/download/Download')// 组件复用
     },
-    {
-      path: '/download', // 地址栏路径
-      name: 'download',
-      component: () => import('@/views/download/index'),
-      children: [// 子路由
-        {
-          path: 'index',
-          name: 'index',
-          component: () => import('@/views/download/Download'),
-          meta: {title: '客户端下载'}
-        },
-        {
-          path: 'mend',
-          name: 'mend',
-          component: () => import('@/views/download/mend'),
-          meta: {title: '补丁下载'}
-        },
-        {
-          path: 'faq',
-          name: 'faq',
-          component: () => import('@/views/download/Faq'),
-          meta: {title: '常见问题'}
-          /* beforeEnter: (to, from, next) => { // 路由独享的守卫
-            alert('请登录')
-            next(false)
-          } */
-        }
-      ],
-      redirect: 'download/index' // 二级路由默认访问地址
-    }
-  ]
+    meta: {title: '首页'}
+  },
+  {
+    path: '/download', // 地址栏路径
+    name: 'download',
+    component: () => import('@/views/download/index'),
+    children: [// 子路由
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('@/views/download/Download'),
+        meta: {title: '客户端下载'}
+      },
+      {
+        path: 'mend',
+        name: 'mend',
+        component: () => import('@/views/download/mend'),
+        meta: {title: '补丁下载'}
+      },
+      {
+        path: 'faq',
+        name: 'faq',
+        component: () => import('@/views/download/Faq'),
+        meta: {title: '常见问题'}
+        /* beforeEnter: (to, from, next) => { // 路由独享的守卫
+          alert('请登录')
+          next(false)
+        } */
+      }
+    ],
+    redirect: 'download/index' // 二级路由默认访问地址
+  }
+]
+
+const router = new Router({
+  routes: routesTest
   // mode: "history"//去掉#号
 })
 
@@ -71,4 +74,7 @@ router.beforeEach((to, from, next) => {
   alert('ddd')
 }) */
 
+export function downLoad1 () {
+  return routesTest
+}
 export default router

@@ -28,9 +28,6 @@
       第二部：卸载游戏到官网下载点http://lw.q1.com/download/index.html下载安装最新客户端进行游戏。
     </div>
   </div>
-  <button-counter></button-counter>
-  <button-counter></button-counter>
-  <button-counter></button-counter>
 </div>
 </template>
 
