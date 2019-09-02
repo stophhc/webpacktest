@@ -11,7 +11,7 @@
           </div>
           <div class="cjwt">
             <div class="tit2">
-              <router-link :key="item" v-for="item in downTe[1].children" :to="{name:item.name}">{{item.meta.title}}</router-link>
+              <router-link :key="item.id" v-for="item in downTe[1].children" :to="{name:item.name}">{{item.meta.title}}</router-link>
             </div>
             <router-view></router-view>
           </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { downLoad1 } from '../../router'
+import { downLoad1 } from '@/router'
 export default {
   computed: {
     downTe () {

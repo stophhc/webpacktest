@@ -1,10 +1,10 @@
 <template>
-  <div>综合</div>
+<div>新闻</div>
 </template>
 
 <script>
 export default {
-  name: 'Synthesize'
+  name: 'News'
 }
 </script>
 

@@ -42,6 +42,70 @@ const routesTest = [
       }
     ],
     redirect: 'download/index' // 二级路由默认访问地址
+  },
+  {
+    path: '/new', // 地址栏路径
+    name: 'new',
+    component: () => import('@/views/new/index'),
+    children: [// 子路由
+      {
+        path: 'synthesize',
+        name: 'synthesize',
+        component: () => import('@/views/new/Synthesize'),
+        meta: {title: '综合'}
+      },
+      {
+        path: 'notice',
+        name: 'notice',
+        component: () => import('@/views/new/Notice'),
+        meta: {title: '公告'}
+      },
+      {
+        path: 'activity',
+        name: 'activity',
+        component: () => import('@/views/new/Activity'),
+        meta: {title: '活动'}
+      },
+      {
+        path: 'news',
+        name: 'news',
+        component: () => import('@/views/new/News'),
+        meta: {title: '新闻'}
+      },
+      {
+        path: 'maintain',
+        name: 'maintain',
+        component: () => import('@/views/new/Maintain'),
+        meta: {title: '维护'}
+      },
+      {
+        path: 'hotspot',
+        name: 'hotspot',
+        component: () => import('@/views/new/Hotspot'),
+        meta: {title: '热点'}
+      }
+    ],
+    redirect: 'new/synthesize' // 二级路由默认访问地址
+  },
+  {
+    path: '/hhc', // 地址栏路径
+    name: 'hhc',
+    component: () => import('@/views/hhc/test1'),
+    children: [// 子路由
+      {
+        path: 'test1',
+        name: 'test1',
+        component: () => import('@/views/hhc/test1'),
+        meta: {title: '测试1'}
+      },
+      {
+        path: 'test1',
+        name: 'test1',
+        component: () => import('@/views/hhc/test2'),
+        meta: {title: '测试2'}
+      }
+    ],
+    redirect: 'hhc/test1' // 二级路由默认访问地址
   }
 ]
 

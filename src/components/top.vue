@@ -2,17 +2,23 @@
     <div>
        <div class="top">
            <div class="logo"><img src="https://img.ssl.q1.com/lw/images/20170215_main/logo_v2.png?v=1" alt="龙武"></div>
+         <div class="xftj1"><app-server v-bind:server="server"></app-server></div>
            <div class="xftj"><app-server v-bind:server="server"></app-server></div>
            <div class="top_video" @click="topVideo"></div>
 
            <div class="menu" @mouseover="mouseover()" @mouseout="mouseout()">
                <ul class="menu_one">
-                   <li :key="item.id" v-for="item in menu"><a :href="item.itemsHref" target="_blank" class="menu_list_a">{{item.itemsName}}</a><span>{{item.itemsSpan}}</span></li>
+                 <li><router-link :to="'/'" class="menu_list_a">官网首页</router-link><span>HOME PAGE</span></li>
+                 <li><router-link :to="'/new'" class="menu_list_a">新闻中心</router-link><span>NEWS</span></li>
+                 <li><a href="http://lw2.q1.com/jzarticle/ziliao.html" target="_blank" class="menu_list_a">游戏展示</a><span>GAME SHOW</span></li>
+                 <li><router-link :to="'/download'" class="menu_list_a">游戏下载</router-link><span>DOWNLOAD</span></li>
+                 <li><a href="http://service.q1.com/LW/HelpSelf" target="_blank" class="menu_list_a">客服中心</a><span>SERVICE CENTER</span></li>
+                 <li><a href="http://bbs.lw.q1.com/" target="_blank" class="menu_list_a">游戏论坛</a><span>GAME FORM</span></li>
                </ul>
                <ul class="menu_tow">
-                   <li><span :key="item.id" v-for="item in news"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
+                   <li><span :key="item.id" v-for="item in downTe[2].children"><router-link :to="{name:item.name}">{{item.meta.title}}</router-link></span></li>
                    <li><span :key="item.id" v-for="item in gameShow"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
-                   <li><span :key="item.id" v-for="item in download"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
+                   <li><span :key="item.id" v-for="item in downTe[1].children"><router-link :to="{name:item.name}">{{item.meta.title}}</router-link></span></li>
                    <li><span :key="item.id" v-for="item in service"><a :href="item.itemsHref" target="_blank">{{item.itemsName}}</a></span></li>
                </ul>
            </div>
@@ -22,21 +28,18 @@
 
 <script>
 import Server from '@/components/server'
+import { downLoad1 } from '@/router'
 export default {
+  computed: {
+    downTe () {
+      return downLoad1()
+    }
+  },
   components: {
     appServer: Server
   },
   data () {
     return {
-      menu: [
-        {itemsHref: '/main.html', itemsName: '官网首页', itemsSpan: 'HOME PAGE'},
-        {itemsHref: '/main.html', itemsName: '新闻中心', itemsSpan: 'NEWS'},
-        {itemsHref: '/main.html', itemsName: '游戏展示', itemsSpan: 'GAME SHOW'},
-        {itemsHref: '/download/index.html', itemsName: '游戏下载', itemsSpan: 'DOWNLOAD'},
-        {itemsHref: '/main.html', itemsName: '客服中心', itemsSpan: 'SERVICE CENTER'},
-        {itemsHref: '/main.html', itemsName: '游戏论坛', itemsSpan: 'GAME FORM'}
-
-      ],
       server: [
         {text: '龙争'},
         {text: '虎斗'}

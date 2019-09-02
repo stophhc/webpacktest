@@ -1,11 +1,15 @@
 <template>
-    <ul class="mulitline1">
-            <li><span :key="itme.id" v-for="itme in server">{{itme.text}}</span></li>
-    </ul>
+   <div>
+     <ul class="mulitline1">
+       <li><span :key="itme.id" v-for="itme in server">{{itme.text}}</span></li>
+     </ul>
+   </div>
 </template>
 
 <script>
 export default {
+  // 传值：string number boolean
+  // 引用：array object
   name: 'server',
   // props: ['server'],
   props: {

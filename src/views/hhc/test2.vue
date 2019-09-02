@@ -1,10 +1,10 @@
 <template>
-  <div>综合</div>
+  <div>ddd</div>
 </template>
 
 <script>
 export default {
-  name: 'Synthesize'
+  name: 'test2'
 }
 </script>
 
