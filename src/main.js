@@ -10,6 +10,7 @@ import Left from '@/components/left'
 
 import copy from '@/components/copy'
 Vue.config.productionTip = false
+// Vue.config.silent = true
 
 Vue.component('copy', copy)
 Vue.component('appTop', Top)

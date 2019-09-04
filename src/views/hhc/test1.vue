@@ -1,8 +1,7 @@
 <template>
 <div>
   <test2 v-bind:title="title"></test2>
-  <test2 v-bind:title="title"></test2>
-  <test2 v-bind:title="title"></test2>
+  <!--<test2 v-bind:title="title"></test2>-->
   <test v-on:titleChange="updateTitle($event)" v-bind:title1="title1"></test>
   <test v-bind:title1="title1"></test>
 </div>
@@ -34,5 +33,4 @@ export default {
 </script>
 
 <style>
-body{background: #fff}
 </style>

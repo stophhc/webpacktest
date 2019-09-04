@@ -106,6 +106,11 @@ const routesTest = [
       }
     ],
     redirect: 'hhc/test1' // 二级路由默认访问地址
+  },
+  {
+    path: '/wholeAPI', // 地址栏路径
+    name: 'wholeAPI',
+    component: () => import('@/views/VueParameter/wholeAPI')
   }
 ]
 

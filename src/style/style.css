@@ -3,7 +3,7 @@ img{border:none; vertical-align:top;}
 li{ list-style:none;}
 i,em{ font-style:normal;}
 a{color:#8f8f8f;text-decoration: none}
-body{background:#fff url(https://img.ssl.q1.com/lw/images/20170215_main/body_v15.jpg?v=1) no-repeat center 42px;padding-top:50px;font:12px/24px tahoma,'\5b8b\4f53',sans-serif;color: #8f8f8f;}
+body{background:#fff /*url(https://img.ssl.q1.com/lw/images/20170215_main/body_v15.jpg?v=1) no-repeat center 42px*/;padding-top:50px;font:12px/24px tahoma,'\5b8b\4f53',sans-serif;color: #8f8f8f;}
 
 .main{width: 1200px;margin: 0 auto;zoom: 1;overflow: hidden;}
 .right{position: relative;width: 948px; float:right;}
