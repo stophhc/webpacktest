@@ -1,6 +1,7 @@
 <template>
     <div>
       {{title1}}
+      {{title2}}
       <button v-on:click="deleteText">删除</button>
       <button v-on:click="changeTitle">改变</button>
     </div>

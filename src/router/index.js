@@ -111,6 +111,11 @@ const routesTest = [
     path: '/wholeAPI', // 地址栏路径
     name: 'wholeAPI',
     component: () => import('@/views/VueParameter/wholeAPI')
+  },
+  {
+    path: '/componentsValue',
+    name: 'componentsValue',
+    component: () => import('@/views/componentsValue/Index'),
   }
 ]
 
