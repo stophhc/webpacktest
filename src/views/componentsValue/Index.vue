@@ -7,12 +7,7 @@
     <emit-app @emitClick="updateClick($event)" v-bind:EmitSeed="EmitpropFather"></emit-app>
 
     <h2>sync</h2>
-    <sync-app></sync-app>
-    <text-document
-      v-bind:title="doc.title"
-      v-on:update:title="doc.title = $event"
-    ></text-document>
-    <text-document v-bind:title.sync="doc.title"></text-document>
+    <!--<sync-app v-bind:SyncpFather.sync="SyncpFather"></sync-app>-->
   </div>
 </template>
 
@@ -30,7 +25,8 @@ export default {
   data () {
     return {
       propFather: 'this prop text',
-      EmitpropFather: 'this emit text'
+      EmitpropFather: 'this emit text',
+      SyncpFather: 'this sync text'
     }
   },
   methods: {

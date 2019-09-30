@@ -115,7 +115,7 @@ const routesTest = [
   {
     path: '/componentsValue',
     name: 'componentsValue',
-    component: () => import('@/views/componentsValue/Index'),
+    component: () => import('@/views/componentsValue/Index')
   }
 ]
 

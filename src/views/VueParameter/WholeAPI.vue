@@ -1,9 +1,21 @@
 <template>
 <div>
   <div class="VueList">
+    <h2>Vue.compile</h2>
+    <p>渲染函数</p>
+    <div></div>
+  </div>
+
+  <div class="VueList">
+    <h2>Vue.mixin</h2>
+    <p>全局混入</p>
+    <div></div>
+  </div>
+
+  <div class="VueList">
     <h2>Vue.filter</h2>
     <p>过滤器</p>
-    <div>{{'2019'|filterA|filterB}}</div>
+    <div>{{'2019'|filterA|filterB|filterC}}</div>
   </div>
 
   <div class="VueList">
@@ -84,6 +96,9 @@ export default {
     },
     filterB: function (value) {
       return value + '46464646'
+    },
+    filterC: function (value) {
+      return value + '1'
     }
   },
   methods: {
